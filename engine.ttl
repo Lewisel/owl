@@ -1,0 +1,743 @@
+@prefix : <http://www.semanticweb.org/sa/ontologies/2024/7/engine/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/sa/ontologies/2024/7/engine/> .
+
+<http://www.semanticweb.org/sa/ontologies/2024/7/engine> rdf:type owl:Ontology ;
+                                                          rdfs:comment "this is an ontology about an engine assembly" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#Around_of
+:Around_of rdf:type owl:ObjectProperty ;
+           rdfs:domain :Piston_head_rings ;
+           rdfs:range :Piston_head .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#Behind_of
+:Behind_of rdf:type owl:ObjectProperty ;
+           rdfs:domain :Flywheel ;
+           rdfs:range :Engineblock .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#Bottom_of
+:Bottom_of rdf:type owl:ObjectProperty ;
+           rdfs:domain :Connecting_rod ,
+                       :Crankshaft ;
+           rdfs:range :Engineblock ,
+                      :Piston_head ;
+           rdfs:comment "Connecting_rod is botto of Piston_head" ,
+                        "crankshaft is bottom of engineblock" .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#Bottomside_of
+:Bottomside_of rdf:type owl:ObjectProperty ;
+               rdfs:domain :Exhaust_manifold ;
+               rdfs:range :Enginehead .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#Infront_of
+:Infront_of rdf:type owl:ObjectProperty ;
+            rdfs:domain :Chain ,
+                        :Strainer ;
+            rdfs:range :Enginehead .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#Inside_of
+:Inside_of rdf:type owl:ObjectProperty ;
+           rdfs:domain :Piston_assembly ,
+                       :oil_pump ;
+           rdfs:range :Engineblock ,
+                      :Sump .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#Ontop_of
+:Ontop_of rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf owl:topObjectProperty ;
+          rdfs:domain :Enginehead ;
+          rdfs:range :Engineblock .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#Topside_of
+:Topside_of rdf:type owl:ObjectProperty ;
+            rdfs:domain :Intake_manifold ;
+            rdfs:range :Enginehead .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#Bore_diameter
+:Bore_diameter rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Engineblock ,
+                           :Head_gasket ;
+               rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#Capacity
+:Capacity rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Sump ;
+          rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#Diameter
+:Diameter rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Connecting_rod_cap ,
+                      :Crankshaft_bearing ,
+                      :Exhaust_vaives ,
+                      :Flywheel ,
+                      :Gudgeon_pin ,
+                      :Gudgeon_ring ,
+                      :Intake_valves ,
+                      :Piston_head ,
+                      :Piston_head_rings ,
+                      :Sump ;
+          rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#Hardness
+:Hardness rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Camshaft ,
+                      :Camshaft_retainer ,
+                      :Gudgeon_pin ,
+                      :Piston_head_rings ;
+          rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#Journal_diameter
+:Journal_diameter rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :Camshaft ,
+                              :Crankshaft_bearing ;
+                  rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#Length
+:Length rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Camshaft ,
+                    :Camshaft_bearings ,
+                    :Camshaft_retainer ,
+                    :Chain ,
+                    :Connecting_rod ,
+                    :Connecting_rod_cap ,
+                    :Crankshaft ,
+                    :Engineblock ,
+                    :Enginehead ,
+                    :Exhaust_manifold ,
+                    :Exhaust_vaives ,
+                    :Gudgeon_pin ,
+                    :Head_gasket ,
+                    :Hydraulic_lifter ,
+                    :Intake_manifold ,
+                    :Intake_valves ,
+                    :Piston_head ,
+                    :Roller_rocker ,
+                    :Strainer ,
+                    :Sump ,
+                    :oil_pump ,
+                    :sump_gasket ,
+                    :valve_cover_gasket ,
+                    :valve_springs ;
+        rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#Lobe_height
+:Lobe_height rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Camshaft ;
+             rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#Surface_finish
+:Surface_finish rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Gudgeon_pin ,
+                            :Piston_head ,
+                            :Piston_head_rings ;
+                rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#Thickness
+:Thickness rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Camshaft_bearings ,
+                       :Camshaft_retainer ,
+                       :Chain ,
+                       :Connecting_rod ,
+                       :Connecting_rod_cap ,
+                       :Crankshaft ,
+                       :Crankshaft_bearing ,
+                       :Enginehead ,
+                       :Exhaust_manifold ,
+                       :Flywheel ,
+                       :Gudgeon_pin ,
+                       :Gudgeon_ring ,
+                       :Head_gasket ,
+                       :Intake_manifold ,
+                       :Intake_valves ,
+                       :Piston_head ,
+                       :Roller_rocker ,
+                       :Strainer ,
+                       :oil_pump ,
+                       :sump_gasket ,
+                       :valve_cover_gasket ,
+                       :valve_springs ;
+           rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#Weight
+:Weight rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Camshaft ,
+                    :Camshaft_retainer ,
+                    :Chain ,
+                    :Connecting_rod_cap ,
+                    :Crankshaft ,
+                    :Engineblock ,
+                    :Enginehead ,
+                    :Exhaust_manifold ,
+                    :Exhaust_vaives ,
+                    :Flywheel ,
+                    :Gudgeon_pin ,
+                    :Hydraulic_lifter ,
+                    :Intake_manifold ,
+                    :Piston_head ,
+                    :Roller_rocker ,
+                    :Strainer ,
+                    :Sump ,
+                    :oil_pump ;
+        rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#Width
+:Width rdf:type owl:DatatypeProperty ;
+       rdfs:domain :Camshaft_bearings ,
+                   :Camshaft_retainer ,
+                   :Chain ,
+                   :Connecting_rod ,
+                   :Connecting_rod_cap ,
+                   :Crankshaft ,
+                   :Crankshaft_bearing ,
+                   :Engineblock ,
+                   :Enginehead ,
+                   :Exhaust_manifold ,
+                   :Gudgeon_pin ,
+                   :Gudgeon_ring ,
+                   :Head_gasket ,
+                   :Hydraulic_lifter ,
+                   :Intake_manifold ,
+                   :Piston_head_rings ,
+                   :Roller_rocker ,
+                   :Strainer ,
+                   :Sump ,
+                   :oil_pump ,
+                   :sump_gasket ,
+                   :valve_cover_gasket ,
+                   :valve_springs ;
+       rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#material
+:material rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Camshaft ,
+                      :Camshaft_bearings ,
+                      :Camshaft_retainer ,
+                      :Chain ,
+                      :Connecting_rod ,
+                      :Connecting_rod_cap ,
+                      :Crankshaft ,
+                      :Crankshaft_bearing ,
+                      :Engineblock ,
+                      :Enginehead ,
+                      :Exhaust_manifold ,
+                      :Exhaust_vaives ,
+                      :Flywheel ,
+                      :Gudgeon_pin ,
+                      :Gudgeon_ring ,
+                      :Head_gasket ,
+                      :Hydraulic_lifter ,
+                      :Intake_manifold ,
+                      :Intake_valves ,
+                      :Piston_head ,
+                      :Piston_head_rings ,
+                      :Roller_rocker ,
+                      :Strainer ,
+                      :Sump ,
+                      :sump_gasket ,
+                      :valve_cover_gasket ,
+                      :valve_springs ;
+          rdfs:range xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#Camshaft
+:Camshaft rdf:type owl:Class ;
+          rdfs:subClassOf :Enginehead .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#Camshaft_bearings
+:Camshaft_bearings rdf:type owl:Class ;
+                   rdfs:subClassOf :Camshaft .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#Camshaft_retainer
+:Camshaft_retainer rdf:type owl:Class ;
+                   rdfs:subClassOf :Camshaft .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#Chain
+:Chain rdf:type owl:Class ;
+       rdfs:subClassOf :Enginehead .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#Connecting_rod
+:Connecting_rod rdf:type owl:Class ;
+                rdfs:subClassOf :Piston_assembly .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#Connecting_rod_cap
+:Connecting_rod_cap rdf:type owl:Class ;
+                    rdfs:subClassOf :Piston_assembly .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#Crankshaft
+:Crankshaft rdf:type owl:Class ;
+            rdfs:subClassOf :Engineblock .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#Crankshaft_bearing
+:Crankshaft_bearing rdf:type owl:Class ;
+                    rdfs:subClassOf :Crankshaft .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#Engine
+:Engine rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#Engineblock
+:Engineblock rdf:type owl:Class ;
+             rdfs:subClassOf :Engine .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#Enginehead
+:Enginehead rdf:type owl:Class ;
+            rdfs:subClassOf :Engine .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#Exhaust_manifold
+:Exhaust_manifold rdf:type owl:Class ;
+                  rdfs:subClassOf :Enginehead .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#Exhaust_vaives
+:Exhaust_vaives rdf:type owl:Class ;
+                rdfs:subClassOf :Enginehead .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#Flywheel
+:Flywheel rdf:type owl:Class ;
+          rdfs:subClassOf :Engineblock .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#Gudgeon_pin
+:Gudgeon_pin rdf:type owl:Class ;
+             rdfs:subClassOf :Piston .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#Gudgeon_ring
+:Gudgeon_ring rdf:type owl:Class ;
+              rdfs:subClassOf :Piston .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#Head_gasket
+:Head_gasket rdf:type owl:Class ;
+             rdfs:subClassOf :Enginehead .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#Hydraulic_lifter
+:Hydraulic_lifter rdf:type owl:Class ;
+                  rdfs:subClassOf :Camshaft .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#Intake_manifold
+:Intake_manifold rdf:type owl:Class ;
+                 rdfs:subClassOf :Enginehead .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#Intake_valves
+:Intake_valves rdf:type owl:Class ;
+               rdfs:subClassOf :Enginehead .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#Piston
+:Piston rdf:type owl:Class ;
+        rdfs:subClassOf :Piston_assembly .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#Piston_assembly
+:Piston_assembly rdf:type owl:Class ;
+                 rdfs:subClassOf :Engineblock .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#Piston_head
+:Piston_head rdf:type owl:Class ;
+             rdfs:subClassOf :Piston .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#Piston_head_rings
+:Piston_head_rings rdf:type owl:Class ;
+                   rdfs:subClassOf :Piston .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#Roller_rocker
+:Roller_rocker rdf:type owl:Class ;
+               rdfs:subClassOf :Camshaft .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#Strainer
+:Strainer rdf:type owl:Class ;
+          rdfs:subClassOf :Enginehead .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#Sump
+:Sump rdf:type owl:Class ;
+      rdfs:subClassOf :Engine .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#oil_pump
+:oil_pump rdf:type owl:Class ;
+          rdfs:subClassOf :Sump .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#sump_gasket
+:sump_gasket rdf:type owl:Class ;
+             rdfs:subClassOf :Sump .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#valve_cover_gasket
+:valve_cover_gasket rdf:type owl:Class ;
+                    rdfs:subClassOf :Camshaft .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#valve_springs
+:valve_springs rdf:type owl:Class ;
+               owl:equivalentClass :valves ;
+               rdfs:subClassOf :Intake_valves .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#valves
+:valves rdf:type owl:Class ;
+        rdfs:subClassOf :Exhaust_vaives .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#LR004430
+:LR004430 rdf:type owl:NamedIndividual ,
+                   :Piston_head_rings ;
+          :Around_of :LR004436 ;
+          :Diameter "84mm" ;
+          :Hardness "60HRC" ;
+          :Surface_finish "lapped or honed" ;
+          :Width """top compression ring 1.5mm
+second compression ring 1.75mm
+oil control ring 3,0mm""" ;
+          :material "cast iron or steel" .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#LR004431
+:LR004431 rdf:type owl:NamedIndividual ,
+                   :Gudgeon_pin ;
+          :Diameter "25mm" ;
+          :Hardness "60HRC" ;
+          :Length "70mm" ;
+          :Surface_finish "Chrome layer" ;
+          :Thickness "4mm" ;
+          :Weight "150g" ;
+          :material "Hardened steel" .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#LR004436
+:LR004436 rdf:type owl:NamedIndividual ,
+                   :Piston_head ;
+          :Diameter "84mm" ;
+          :Length "75mm" ;
+          :Surface_finish "ceramic or graphite coating" ;
+          :Thickness "7mm" ;
+          :material "alluminium alloy" .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#LR004857
+:LR004857 rdf:type owl:NamedIndividual ,
+                   :Engineblock ;
+          :Bore_diameter "84mm" ;
+          :Length "650mm" ;
+          :Weight "80Kg" ;
+          :Width "450mm" ;
+          :material "cast iron or alluminium alloy" .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#LR005147
+:LR005147 rdf:type owl:NamedIndividual ,
+                   :oil_pump ;
+          :Inside_of :LR006919 ;
+          :Length "150mm" ;
+          :Thickness "70mm" ;
+          :Weight "1.5Kg" ;
+          :Width "120mm" .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#LR005243
+:LR005243 rdf:type owl:NamedIndividual ,
+                   :Hydraulic_lifter ;
+          :Length "33mm" ;
+          :Weight "50g" ;
+          :Width "12mm" ;
+          :material "hardened steel" .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#LR005448
+:LR005448 rdf:type owl:NamedIndividual ,
+                   :valve_springs ;
+          :Length "uncompressed 46mm" ;
+          :Thickness "3mm" ;
+          :Width "27mm" ;
+          :material "high strength steel alloy" .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#LR005453
+:LR005453 rdf:type owl:NamedIndividual ,
+                   :valve_cover_gasket ;
+          :Length "330mm" ;
+          :Thickness "2.5mm" ;
+          :Width "17mm" ;
+          :material "high quality rubber or rubber composite material" .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#LR005457
+:LR005457 rdf:type owl:NamedIndividual ,
+                   :Camshaft_bearings ;
+          :Length "20mm" ;
+          :Thickness "2mm" ;
+          :Width "30mm" ;
+          :material "babbit bronze or alluminium alloy" .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#LR005461
+:LR005461 rdf:type owl:NamedIndividual ,
+                   :Exhaust_vaives ;
+          :Inside_of :LR008162 ;
+          :Diameter "head diameter 33mm" ;
+          :Length "109.4mm" ;
+          :Weight "100g" ;
+          :material "heat resistant alloy" .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#LR005502
+:LR005502 rdf:type owl:NamedIndividual ,
+                   :Roller_rocker ;
+          :Length "75mm" ;
+          :Thickness "12mm" ;
+          :Weight "80g" ;
+          :Width "15mm" ;
+          :material "high strength steel or forged alluminium alloy" .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#LR005808
+:LR005808 rdf:type owl:NamedIndividual ,
+                   :Connecting_rod_cap ;
+          :Diameter "60mm" ;
+          :Length "83mm" ;
+          :Thickness "11mm" ;
+          :Weight "170g" ;
+          :Width "23mm" ;
+          :material "forged steel or high strength steel alloy" .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#LR005809
+:LR005809 rdf:type owl:NamedIndividual ,
+                   :Connecting_rod ;
+          :Bottom_of :LR004436 ;
+          :Length "155mm" ;
+          :Thickness "10mm" ;
+          :Width "22mm" ;
+          :material "high strength forged steel" .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#LR005892
+:LR005892 rdf:type owl:NamedIndividual ,
+                   :Head_gasket ;
+          :Bore_diameter "84mm" ;
+          :Length "290mm" ;
+          :Thickness "1,3mm" ;
+          :Width "190mm" ;
+          :material """multilayer steel construction 
+3 or more layers with rubber coating""" .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#LR005901
+:LR005901 rdf:type owl:NamedIndividual ,
+                   :Exhaust_manifold ;
+          :Bottomside_of :LR008162 ;
+          :Length "320mm" ;
+          :Thickness "5mm" ;
+          :Weight "4.5Kg" ;
+          :Width "150mm" ;
+          :material "cast iron or high grade stainless steel" .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#LR006450
+:LR006450 rdf:type owl:NamedIndividual ,
+                   :Intake_valves ;
+          :Inside_of :LR008162 ;
+          :Diameter "34mm" ;
+          :Length "110mm" ;
+          :Thickness "6mm" ;
+          :material "stainless steel" .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#LR006919
+:LR006919 rdf:type owl:NamedIndividual ,
+                   :Sump ;
+          :Bottom_of :LR004857 ;
+          :Capacity "7.2mm" ;
+          :Diameter "150mm" ;
+          :Length "450mm" ;
+          :Weight "3.5mm" ;
+          :Width "300mm" ;
+          :material "alluminium or steel" .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#LR008162
+:LR008162 rdf:type owl:NamedIndividual ,
+                   :Enginehead ;
+          :Ontop_of :LR004857 ;
+          :Length "590mm" ;
+          :Thickness "150mm" ;
+          :Weight "22Kg" ;
+          :Width "200mm" ;
+          :material "alluminium alloy" .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#LR008353
+:LR008353 rdf:type owl:NamedIndividual ,
+                   :Camshaft ;
+          :Ontop_of :LR008162 ;
+          :Hardness "55HRC" ;
+          :Journal_diameter "37mm" ;
+          :Length "550mm" ;
+          :Lobe_height "9mm" ;
+          :Weight "5Kg" ;
+          :material "forged steel or cast iron" .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#LR009705
+:LR009705 rdf:type owl:NamedIndividual ,
+                   :sump_gasket ;
+          :Length "450mm" ;
+          :Thickness "2.5mm" ;
+          :Width "300mm" ;
+          :material """multilayer steel construction
+3 or more layers with rubber coating""" .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#LR010839
+:LR010839 rdf:type owl:NamedIndividual ,
+                   :Gudgeon_ring ;
+          :Diameter "20mm" ;
+          :Thickness "1mm" ;
+          :Width "5mm" ;
+          :material "high strength spring steel" .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#LR0133380
+:LR0133380 rdf:type owl:NamedIndividual ,
+                    :Crankshaft ;
+           :Bottom_of :LR004857 ;
+           :Length "650mm" ;
+           :Thickness "20mm" ;
+           :Weight "27Kg" ;
+           :Width """main journal 65mm
+crank pins 55mm""" ;
+           :material "forged steel or cast iron" .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#LR013381
+:LR013381 rdf:type owl:NamedIndividual ,
+                   :Crankshaft_bearing ;
+          :Diameter "70mm" ;
+          :Journal_diameter "7mm" ;
+          :Thickness "2.5mm" ;
+          :Width "23mm" ;
+          :material """multi-layer material
+overlay :soft metal 
+Layer: copper -lead alloy
+back layer: steel or bronze""" .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#LR013518
+:LR013518 rdf:type owl:NamedIndividual ,
+                   :Flywheel ;
+          :Diameter "340mm" ;
+          :Thickness "30mm" ;
+          :Weight "10Kg" ;
+          :material "high grade steel or cast iron" .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#LR017309
+:LR017309 rdf:type owl:NamedIndividual ,
+                   :Intake_manifold ;
+          :Topside_of :LR008162 ;
+          :Length "450mm" ;
+          :Thickness "4mm" ;
+          :Weight "3Kg" ;
+          :Width "200mm" ;
+          :material "Alluminium" .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#LR10667
+:LR10667 rdf:type owl:NamedIndividual ,
+                  :Camshaft_retainer ;
+         :Hardness "55HRC" ;
+         :Length "90mm" ;
+         :Thickness "7mm" ;
+         :Weight "150g" ;
+         :Width "25mm" ;
+         :material "high strength steel or steel alloy" .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#LRO19117
+:LRO19117 rdf:type owl:NamedIndividual ,
+                   :Chain ;
+          :Infront_of :LR008162 ;
+          :Length "120mm" ;
+          :Thickness "1.5mm" ;
+          :Weight "1.5Kg" ;
+          :Width "7mm" ;
+          :material "high strength steel alloys" .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#assembled_piston
+:assembled_piston rdf:type owl:NamedIndividual ,
+                           :Piston_assembly ;
+                  :Inside_of :LR004857 .
+
+
+###  http://www.semanticweb.org/sa/ontologies/2024/7/engine#1311327
+<http://www.semanticweb.org/sa/ontologies/2024/7/engine#1311327> rdf:type owl:NamedIndividual ,
+                                                                          :Strainer ;
+                                                                 :Infront_of :LR008162 ;
+                                                                 :Length "110mm" ;
+                                                                 :Thickness "1mm" ;
+                                                                 :Weight "0.3kg" ;
+                                                                 :Width "50mm" ;
+                                                                 :material "stainless steel mesh and alluminium housing" .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
